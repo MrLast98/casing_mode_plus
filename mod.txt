@@ -12,8 +12,8 @@
         {
             "identifier": "Casing_Mode",
             "host": {
-                "meta": "https://raw.githubusercontent.com/pasaldo/Casing_Mode/refs/heads/main/updates.json",
-                "download": "https://github.com/pasaldo/Casing_Mode/raw/refs/heads/main/Casing_Mode.zip",
+                "meta": "https://raw.githubusercontent.com/MrLast98/pd2-stealth-revival/refs/heads/main/updates.json",
+                "download": "https://github.com/MrLast98/stealth/raw/refs/heads/main/casing_mode_plus.zip",
                 "patchnotes": "https://modworkshop.net/mod/50586?tab=changelog"
             }
         }

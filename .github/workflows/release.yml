@@ -1,0 +1,57 @@
+name: Build release zip
+
+# Rebuilds casing_mode_plus.zip, containing a single casing_mode_plus/ folder
+# (mod.txt, mod.lua, supermod.xml, Thumbnail.png, lua/) that users can drag
+# straight into their mods folder, and keeps updates.json's version in sync
+# with mod.txt, matching the raw-file download scheme configured in
+# mod.txt/updates.json.
+on:
+  push:
+    branches: [main]
+    paths:
+      - mod.txt
+      - mod.lua
+      - supermod.xml
+      - Thumbnail.png
+      - lua/**
+  workflow_dispatch: {}
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Read version from mod.txt
+        id: version
+        run: echo "value=$(jq -r '.version' mod.txt)" >> "$GITHUB_OUTPUT"
+
+      - name: Build casing_mode_plus.zip
+        run: |
+          rm -f casing_mode_plus.zip
+          staging="$(mktemp -d)/casing_mode_plus"
+          mkdir -p "$staging"
+          cp -r mod.txt mod.lua supermod.xml Thumbnail.png lua "$staging/"
+          (cd "$(dirname "$staging")" && zip -r "$OLDPWD/casing_mode_plus.zip" casing_mode_plus)
+          rm -rf "$(dirname "$staging")"
+
+      - name: Sync updates.json version
+        run: |
+          tmp="$(mktemp)"
+          jq --arg v "${{ steps.version.outputs.value }}" '.[0].version = $v' updates.json > "$tmp"
+          mv "$tmp" updates.json
+
+      - name: Commit release artifacts
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add casing_mode_plus.zip updates.json
+          if git diff --cached --quiet; then
+            echo "Nothing to commit"
+          else
+            git commit -m "release: v${{ steps.version.outputs.value }} [skip ci]"
+            git push
+          fi
