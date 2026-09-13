@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<mod>
+    <hooks script_path="mod.lua">
+        <group hook_id="lib/">
+            <group :hook_id="tweak_data/">
+                <post :hook_id="interactiontweakdata"/>
+            </group>
+
+            <group :hook_id="managers/">
+                <post :hook_id="menumanager"/>
+                <post :hook_id="hudmanager"/>
+                <post :hook_id="hintmanager"/>
+            </group>
+
+            <group :hook_id="units/beings/player/">
+                <post :hook_id="states/playermaskoff"/>
+                <post :hook_id="states/playerstandard"/>
+                <post :hook_id="states/playercivilian"/>
+            </group>
+        </group>
+    </hooks>
+</mod>

@@ -1,0 +1,22 @@
+{
+    "name": "Casing Mode",
+    "description": "Casing mode from Payday 3 For Payday 2",
+    "author": "TotemFallico",
+    "contact": "",
+    "color": "0.043 0.808 0.6",
+    "priority": 1000,
+	"image" : "Thumbnail.png",
+    "blt_version": 2.0,
+    "version": "1.5",
+    "updates": [
+        {
+            "identifier": "Casing_Mode",
+            "host": {
+                "meta": "https://raw.githubusercontent.com/pasaldo/Casing_Mode/refs/heads/main/updates.json",
+                "download": "https://github.com/pasaldo/Casing_Mode/raw/refs/heads/main/Casing_Mode.zip",
+                "patchnotes": "https://modworkshop.net/mod/50586?tab=changelog"
+            }
+        }
+    ]
+}
+
