@@ -9,15 +9,17 @@ Brings PAYDAY 3-style casing freedom to PAYDAY 2. Updated for Diesel 3.0 (64-bit
 - Ability-type gadgets (e.g. Pocket ECM) usable; weapons stay blocked.
 
 **Civilian disguise**
-- Same movement/interaction freedom and hint suppression as casing mode.
+- Same movement/interaction freedom and hint suppression as casing mode (including skill interactions like camera loop).
 - Weapons and equipment/gadget deployment stay locked until you reach casing mode.
 
 ## Requirements
 - SuperBLT (64-bit build)
-- BeardLib (only for the optional multiplayer HUD sync)
 
 ## Known issues
 None.
+
+## Loader notes
+Hook layout audit: [`docs/mod-loader-config.md`](docs/mod-loader-config.md).
 
 ## Credits
 |Link | Description | Author |
