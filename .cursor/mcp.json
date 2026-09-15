@@ -1,0 +1,25 @@
+{
+    "mcpServers": {
+        "sequential-thinking": {
+            "type": "stdio",
+            "command": "bunx",
+            "args": [
+                "-y",
+                "@modelcontextprotocol/server-sequential-thinking"
+            ]
+        },
+        "memory": {
+            "type": "stdio",
+            "command": "bunx",
+            "args": [
+                "-y",
+                "@modelcontextprotocol/server-memory"
+            ]
+        },
+        "refactor": {
+            "type": "stdio",
+            "command": "refactor-mcp",
+            "args": []
+        }
+    }
+}
