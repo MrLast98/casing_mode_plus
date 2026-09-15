@@ -14,6 +14,7 @@ Brings PAYDAY 3-style casing freedom to PAYDAY 2. Updated for Diesel 3.0 (64-bit
 
 ## Requirements
 - SuperBLT (64-bit build)
+- BeardLib (required for multiplayer sessions)
 
 ## Known issues
 None.
