@@ -1,4 +1,5 @@
 <?xml version="1.0"?>
+<!-- Every <post> runs mod.lua, which loads lua/<hook basename>.lua. -->
 <mod>
     <hooks script_path="mod.lua">
         <group hook_id="lib/">
@@ -7,8 +8,6 @@
             </group>
 
             <group :hook_id="managers/">
-                <post :hook_id="menumanager"/>
-                <post :hook_id="hudmanager"/>
                 <post :hook_id="hintmanager"/>
             </group>
 
