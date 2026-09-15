@@ -1,0 +1,43 @@
+Application has crashed: access violation
+
+-------------------------------
+
+Callstack:
+
+                       PAYDAY2  (???)     AK::WriteBytesCount::WriteBytes                     
+                       PAYDAY2  (???)     snprintf                                            
+                       PAYDAY2  (???)     snprintf                                            
+                       PAYDAY2  (???)     snprintf                                            
+                       PAYDAY2  (???)     AK::WriteBytesCount::WriteBytes                     
+                       PAYDAY2  (???)     AK::WriteBytesCount::WriteBytes                     
+                       PAYDAY2  (???)     AK::WriteBytesCount::WriteBytes                     
+                       PAYDAY2  (???)     AK::WriteBytesCount::WriteBytes                     
+                       PAYDAY2  (???)     AK::WriteBytesCount::WriteBytes                     
+                       PAYDAY2  (???)     AK::WriteBytesCount::WriteBytes                     
+                       PAYDAY2  (???)     AK::WriteBytesCount::WriteBytes                     
+                       PAYDAY2  (???)     AK::WriteBytesCount::WriteBytes                     
+                       PAYDAY2  (???)     wscanf_s                                            
+                      KERNEL32  (???)     BaseThreadInitThunk                                 
+                         ntdll  (???)     RtlUserThreadStart                                  
+
+
+-------------------------------
+
+Current thread: dslRenderer
+
+-------------------------------
+
+System information:
+	Application version : 1.0.0-158579.
+	CPU : AMD Ryzen 7 5700X3D 8-Core 8 cores; SSE; SSE2; SSE3; SSSE3; SSE4.1; SSE4.2; AVX; AVX2
+	DirectX : 12_1
+	GPU : AMD Radeon RX 7900 XT [Video:20421MiB,Sys:0MiB,Shared:49078MiB,Vendor:AMD(0x1002)]
+	Language : english
+	Matchmaking : Epic
+	Memory : 63.9 GiB
+	OS : Windows 10.0.26200 () 0x100-0x1 (64 bits)
+	Physics : threaded
+	Platform : Steam
+	Renderer : DX11 threaded
+	Sound : Realtek Digital Output (Realtek(R) Audio)
+
