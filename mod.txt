@@ -3,11 +3,11 @@
     "description": "Casing mode from Payday 3 For Payday 2",
     "author": "TotemFallico",
     "contact": "",
-    "color": "11 206 153",
+    "color": "0.043 0.808 0.6",
     "priority": 1000,
 	"image" : "Thumbnail.png",
-    "blt_version": 2,
-    "version": "1.5",
+    "blt_version": 2.0,
+    "version": "1.5.1",
     "updates": [
         {
             "provider": "mws",
