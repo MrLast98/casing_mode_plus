@@ -9,7 +9,7 @@ Cross-checked against:
 
 ## Verdict
 
-SuperBLT-only mod. No BeardLib dependency — gameplay is pure Lua hooks (`Hooks:PostHook` / `Hooks:OverrideFunction`). An unused BeardLib HUD-sync stub was removed.
+SuperBLT-driven mod — gameplay is pure Lua hooks (`Hooks:PostHook` / `Hooks:OverrideFunction`). BeardLib is listed as a multiplayer requirement; `lua/menumanager.lua` and `lua/hudmanager.lua` load `lua/bearlibsync.lua` (nil-guarded) when those manager scripts are required.
 
 ---
 
@@ -34,6 +34,8 @@ Resolved post-hooks:
 | `hook_id` | Dispatched file via `mod.lua` |
 |-----------|-------------------------------|
 | `lib/tweak_data/interactiontweakdata` | `lua/interactiontweakdata.lua` |
+| `lib/managers/menumanager` | `lua/menumanager.lua` → `bearlibsync.setup_menu` |
+| `lib/managers/hudmanager` | `lua/hudmanager.lua` → `bearlibsync.setup_hud` |
 | `lib/managers/hintmanager` | `lua/hintmanager.lua` |
 | `lib/units/beings/player/states/playermaskoff` | `lua/playermaskoff.lua` |
 | `lib/units/beings/player/states/playerstandard` | `lua/playerstandard.lua` |
@@ -59,6 +61,7 @@ Matches SuperBLT’s `RequiredScript` variable. `ModPath` / `ModInstance` are ca
 
 1. Every `<post :hook_id="…"/>` must have a matching `lua/<last-segment>.lua` (or change the dispatcher).
 2. Prefer one `script_path` (`mod.lua`) **or** per-file `script_path`s — don’t mix without documenting why.
-3. Keep `color` as `R G B` in 0–255.
+3. Keep `color` as `R G B` in 0–255 (0–1 floats also work via SuperBLT’s dual parse).
 4. Keep MWS `identifier` equal to the ModWorkshop mod id in the URL.
 5. Peer messaging (if added later) → SuperBLT `NetworkHelper`, not BeardLib, unless shipping BeardLib custom content.
+6. **Do not put `<!-- -->` comments in `supermod.xml`.** `blt.parsexml` can fail the whole file; SuperBLT then skips hook registration with no error UI (mod still shows in the menu from `mod.txt`). This matched the “vanilla casing / no HUD diag” failure after comments were added post-`aeb6624`.
