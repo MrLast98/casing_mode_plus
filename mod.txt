@@ -1,5 +1,5 @@
 {
-    "name": "Casing Mode",
+    "name": "casing_mode_plus",
     "description": "Casing mode from Payday 3 For Payday 2",
     "author": "TotemFallico",
     "contact": "",
@@ -10,12 +10,10 @@
     "version": "1.5",
     "updates": [
         {
-            "identifier": "Casing_Mode",
-            "host": {
-                "meta": "https://raw.githubusercontent.com/MrLast98/pd2-stealth-revival/refs/heads/main/updates.json",
-                "download": "https://github.com/MrLast98/stealth/raw/refs/heads/main/casing_mode_plus.zip",
-                "patchnotes": "https://modworkshop.net/mod/50586?tab=changelog"
-            }
+            "identifier": "casing_mode_plus",
+            "meta": "https://raw.githubusercontent.com/MrLast98/pd2-stealth-revival/refs/heads/master/updates.json",
+            "download": "https://github.com/MrLast98/pd2-stealth-revival/raw/refs/heads/master/casing_mode_plus.zip",
+            "patchnotes": "https://modworkshop.net/mod/58885?tab=changelog"
         }
     ]
 }

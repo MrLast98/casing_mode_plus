@@ -1,8 +1,8 @@
 [
     {
-        "ident": "pd2-stealth-revival",
-        "version": "1.4",
+        "ident": "casing_mode_plus",
+        "version": "1.5",
         "patchnotes_url": "https://modworkshop.net/mod/50586?tab=changelog",
-        "download_url": "https://github.com/MrLast98/pd2-stealth-revival/raw/refs/heads/main/Casing_Mode.zip"
+        "download_url": "https://github.com/MrLast98/pd2-stealth-revival/raw/refs/heads/master/casing_mode_plus.zip"
     }
 ]
