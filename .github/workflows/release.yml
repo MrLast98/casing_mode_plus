@@ -2,9 +2,9 @@ name: Build release zip
 
 # Rebuilds casing_mode_plus.zip, containing a single casing_mode_plus/ folder
 # (mod.txt, mod.lua, supermod.xml, Thumbnail.png, lua/) that users can drag
-# straight into their mods folder, and keeps updates.json's version in sync
-# with mod.txt, matching the raw-file download scheme configured in
-# mod.txt/updates.json.
+# straight into their mods folder. Update checks are handled by SuperBLT's
+# "mws" provider directly against the ModWorkshop mod page, so this only
+# produces the drag-and-drop zip (uploaded to ModWorkshop manually).
 on:
   push:
     branches: [master]
@@ -38,17 +38,11 @@ jobs:
           (cd "$(dirname "$staging")" && zip -r "$OLDPWD/casing_mode_plus.zip" casing_mode_plus)
           rm -rf "$(dirname "$staging")"
 
-      - name: Sync updates.json version
-        run: |
-          tmp="$(mktemp)"
-          jq --arg v "${{ steps.version.outputs.value }}" '.[0].version = $v' updates.json > "$tmp"
-          mv "$tmp" updates.json
-
       - name: Commit release artifacts
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add casing_mode_plus.zip updates.json
+          git add casing_mode_plus.zip
           if git diff --cached --quiet; then
             echo "Nothing to commit"
           else

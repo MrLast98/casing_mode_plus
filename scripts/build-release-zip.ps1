@@ -1,7 +1,10 @@
 <#
-Builds Casing_Mode.zip at the repo root from just the files SuperBLT actually
-needs to load the mod (mirrors the "asdasd" reference layout: everything flat
-at the zip root, no wrapping folder). Used locally and by the release workflow.
+Builds casing_mode_plus.zip at the repo root, containing a single
+casing_mode_plus/ folder that users can drag straight into their mods
+folder. Update checks use SuperBLT's "mws" provider against the
+ModWorkshop mod page, so this zip is only the drag-and-drop package
+(upload it to ModWorkshop manually). Used locally and by the release
+workflow.
 #>
 
 $ErrorAction = "Stop"
