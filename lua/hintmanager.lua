@@ -1,17 +1,15 @@
--- Blocks the "NO SUSPICIOUS ACTIONS ALLOWED" hint spam from Casing Mode
--- (merged from the separate "No More Casing Mode Warnings" patch)
--- "mask_off_block_interact" is shown while unmasked (casing/mask-off state),
--- "clean_block_interact" is the equivalent shown while in the civilian-disguise state.
+-- Suppress casing/civilian "no suspicious actions" hint spam.
 local blocked_hints = {
-    mask_off_block_interact = true,
-    clean_block_interact = true,
+	mask_off_block_interact = true, -- casing / mask-off
+	clean_block_interact = true, -- civilian disguise
 }
 
 local orig_show_hint = HintManager.show_hint
 
 function HintManager:show_hint(id, ...)
-    if blocked_hints[id] then
-        return -- Block the hint completely
-    end
-    return orig_show_hint(self, id, ...) -- Allow all other hints
+	if blocked_hints[id] then
+		return
+	end
+
+	return orig_show_hint(self, id, ...)
 end
